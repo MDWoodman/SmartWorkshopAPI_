@@ -1,0 +1,6 @@
+@SmartWorkshopAPI_HostAddress = http://localhost:5122
+
+GET {{SmartWorkshopAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
