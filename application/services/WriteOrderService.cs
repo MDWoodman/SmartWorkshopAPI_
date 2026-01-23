@@ -58,6 +58,7 @@ namespace SmartWorkshopAPI.application.services
         async public Task<int> CreateOrder(CreateOrderDto createOrderDto)
         {
             var order = _mapper.Map<SmartWorkshopAPI.domain.entities.Order>(createOrderDto);
+            order.StartOrder();
             var id =  await _writeOrderRepositoryService.AddOrderAsync(order);
             return id;
         }

@@ -35,15 +35,15 @@ namespace SmartWorkshopAPI.application.services.factory
         /// </remarks>
         public IOrderProcessingStrategy GetStrategy(string strategyType)
         {
-            switch (strategyType)
+            switch (strategyType.ToLower())
             {
-                case "Manual":
+                case "manual":
                     return new ManualOrderProcessingStrategy();
                     break;
-                case "Express":
+                case "express":
                     return new FastOrderProcessingStrategy();
                     break;
-                case "Premium":
+                case "premium":
                     return new PremiumOrderProcessingStrategy();
                     break;
                 default:

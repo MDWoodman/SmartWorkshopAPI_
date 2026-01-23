@@ -9,7 +9,7 @@
         public int Quantity { get; set; }
         public decimal Total => Price * Quantity;
         public OrderItem() { }
-        public OrderItem(Guid orderItemid, string description, decimal price, int quantity)
+        public OrderItem(Guid orderItemid, int v, string description, decimal price, int quantity)
         {
             OrderItemId = orderItemid;
             Description = description;

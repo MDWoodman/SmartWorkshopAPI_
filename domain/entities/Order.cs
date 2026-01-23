@@ -10,6 +10,7 @@ namespace SmartWorkshopAPI.domain.entities
         public string OrderStatus { get; set; }
         public decimal TotalAmount { get; set; }
 
+        public string ProcessStrategy { get; set; }
         public decimal TotalFee { get; set; }
 
         private List<OrderItem> _items = new();

@@ -1,4 +1,5 @@
-﻿using SmartWorkshopAPI.domain.entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartWorkshopAPI.domain.entities;
 using SmartWorkshopAPI.infrastructure.repositories.@internal;
 
 namespace SmartWorkshopAPI.infrastructure.repositories
@@ -27,7 +28,9 @@ namespace SmartWorkshopAPI.infrastructure.repositories
         async public Task<int> AddOrderAsync(Order order)
         {
             _dbContext.Orders.Add(order);
-            return await  _dbContext.SaveChangesAsync();
+            await  _dbContext.SaveChangesAsync();
+            return order.OrderId;
+
 
         }
 
@@ -45,9 +48,18 @@ namespace SmartWorkshopAPI.infrastructure.repositories
             // throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateOrderProcessStrategy(int orderId, string processStrategy)
+        async public Task<bool> UpdateOrderProcessStrategy(int orderId, string processStrategy)
         {
-            throw new NotImplementedException();
+           await _dbContext.Orders
+                .Where(o => o.OrderId == orderId)
+                .ExecuteUpdateAsync(setters => 
+                    setters.SetProperty(
+                        o => o.ProcessStrategy, 
+                        o => processStrategy
+                    )
+                );
+
+            return true;
         }
     }
 }

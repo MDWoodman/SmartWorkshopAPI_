@@ -41,7 +41,7 @@ namespace SmartWorkshopAPI.Controllers
         /// Route: POST api/order/{orderId}/process/{strategyType}
         /// This method delegates processing to <see cref="IWriteOrderService.ExecuteOrderProcessingStrategy(int, string)"/>.
         /// </remarks>
-        [HttpPost("{orderId}/process/{strategyType}")]
+        [HttpGet("{orderId}/process/{strategyType}")]
         public IActionResult ProcessOrder(int orderId, string strategyType)
         {
             var result = _writeOrderService.ExecuteOrderProcessingStrategy(orderId, strategyType);
