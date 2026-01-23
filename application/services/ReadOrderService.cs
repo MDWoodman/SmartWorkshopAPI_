@@ -20,6 +20,12 @@ namespace SmartWorkshopAPI.application.services
             // throw new NotImplementedException();
         }
 
+        public Task<string> GetOrderStatus(int orderId)
+        {
+            var status = _readOrderRepositoryService.GetOrderStatusAsync(orderId);
+            return status;
+        }
+
         public Task<List<Order>> ListAllOrders()
         {
             var orders =  _readOrderRepositoryService.GetAllOrdersAsync();

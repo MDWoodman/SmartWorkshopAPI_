@@ -21,7 +21,7 @@ namespace SmartWorkshopAPI.application.services.@interface
         /// A string describing the outcome of the processing operation (for example a status message
         /// or strategy-specific result).
         /// </returns>
-        public string ExecuteOrderProcessingStrategy(int orderId, string strategyType);
+        public Task<string> ExecuteOrderProcessingStrategy(int orderId, string strategyType);
 
         /// <summary>
         /// Creates a new order from the provided DTO.

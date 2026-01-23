@@ -6,5 +6,6 @@ namespace SmartWorkshopAPI.infrastructure.repositories.@internal
     {
         Task<Order?> GetOrderByIdAsync(int orderId);
         Task<IEnumerable<Order>> GetAllOrdersAsync();
+        Task<string> GetOrderStatusAsync(int orderId);
     }
 }

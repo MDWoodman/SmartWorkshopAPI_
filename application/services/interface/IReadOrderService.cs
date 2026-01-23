@@ -34,7 +34,7 @@ namespace SmartWorkshopAPI.application.services.@interface
         /// </returns>
         public Task<List<Order>> ListAllOrders();
 
-
+        public Task<string> GetOrderStatus(int orderId);
 
     }
 }
